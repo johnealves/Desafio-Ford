@@ -4,7 +4,7 @@ const centroOeste = ["Brasília", "Campo Grande", "Cuiabá", "Goiânia"]
 const sudeste = ["Belo Horizonte", "Rio de Janeiro", "São Paulo", "Vitória"]
 const sul = ["Curitiba", "Florianópolis", "Porto Alegre"]
 
-const rotaTest = [["Boa Vista","Salvador"], ["Vitória", "Cuiabá"], ["Rio de Janeiro", "Curitiba"]]
+const routeTest = [["Boa Vista","Salvador"], ["Vitória", "Cuiabá"], ["Rio de Janeiro", "Curitiba"]]
 
 
 mapStatesRoute = {
@@ -30,10 +30,10 @@ mapStatesRoute = {
   sulSudestes: false,
 }
 
-const estimateRotes = (rotaTest) => {
+const estimateRotes = (routeTest) => {
   const stateRoutes = mapStatesRoute;
   
-  rotaTest.forEach(element => {
+  routeTest.forEach(element => {
     if (norte.includes(element[0])) {
       if (nordeste.includes(element[1])) {
         stateRoutes.norteNordeste = true;
@@ -109,4 +109,4 @@ const estimateRotes = (rotaTest) => {
   }))
 }
 
-estimateRotes(rotaTest)
+estimateRotes(routeTest)
