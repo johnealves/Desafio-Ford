@@ -4,109 +4,81 @@ const centroOeste = ["Brasília", "Campo Grande", "Cuiabá", "Goiânia"]
 const sudeste = ["Belo Horizonte", "Rio de Janeiro", "São Paulo", "Vitória"]
 const sul = ["Curitiba", "Florianópolis", "Porto Alegre"]
 
+const regions = ["norte", "nordeste", "centroOeste", "sudeste", "sul"];
+
 const routeTest = [["Boa Vista","Salvador"], ["Vitória", "Cuiabá"], ["Rio de Janeiro", "Curitiba"]]
 
-
-mapStatesRoute = {
-  norteNordeste: false,
-  norteCentro: false,
-  norteSudeste: false,
-  norteSul: false,
-  nordesteNorte: false,
-  nordesteCentro: false,
-  nordesteSudeste: false,
-  nordesteSul: false,
-  centroNorte: false,
-  centroNordeste: false,
-  centroSudeste: false,
-  centroSul: false,
-  sudesteNorte: false,
-  sudesteNordeste: false,
-  sudesteCentro: false,
-  sudesteSul: false,
-  sulNorte: false,
-  sulNordeste: false,
-  sulCentro: false,
-  sulSudestes: false,
-}
-
 const estimateRotes = (routeTest) => {
-  const stateRoutes = mapStatesRoute;
+  const rotas = []
   
   routeTest.forEach(element => {
     if (norte.includes(element[0])) {
       if (nordeste.includes(element[1])) {
-        stateRoutes.norteNordeste = true;
+        rotas.push(["Norte", "Nordeste"])
       }
       if (centroOeste.includes(element[1])) {
-        stateRoutes.norteCentro = true;
+        rotas.push(["Norte", "Centro-oeste"])
       }
       if (sudeste.includes(element[1])) {
-        stateRoutes.norteSudeste = true;
+        rotas.push(["Norte", "Sudeste"])
       }
-      if (sul.includes(element[1])) {
-        stateRoutes.norteSul = true;
+      if (sul.includes(element[1])) {        rotas.push(["Norte", "Sul"])
       }
     } else if (nordeste.includes(element[0])) {
       if (norte.includes(element[1])) {
-        stateRoutes.nordesteNorte = true;
+        rotas.push(["Nordeste", "Norte"])
       }
       if (centroOeste.includes(element[1])) {
-        stateRoutes.nordesteCentro = true;
+        rotas.push(["Nordeste", "Centro-Oeste"])
       }
       if (sudeste.includes(element[1])) {
-        stateRoutes.nordesteSudeste = true;
+        rotas.push(["Nordeste", "Sudeste"])
       }
       if (sul.includes(element[1])) {
-        stateRoutes.nordesteSul = true;
+        rotas.push(["Nordeste", "Sul"])
       }
     } else if (centroOeste.includes(element[0])) {
       if (norte.includes(element[1])) {
-        stateRoutes.centroNorte = true;
+        rotas.push(["Centro-Oeste", "Norte"])
       }
       if (nordeste.includes(element[1])) {
-        stateRoutes.centroNordeste = true;
+        rotas.push(["Centro-Oeste", "Nordeste"])
       }
       if (sudeste.includes(element[1])) {
-        stateRoutes.centroSudeste = true;
+        rotas.push(["Centro-Oeste", "Sudeste"])
       }
       if (sul.includes(element[1])) {
-        stateRoutes.centroSul = true;
+        rotas.push(["Centro-Oeste", "Sul"])
       }
     } else if (sudeste.includes(element[0])) {
       if (norte.includes(element[1])) {
-        stateRoutes.sudesteNorte = true;
+        rotas.push(["Sudeste", "Norte"])
       }
       if (nordeste.includes(element[1])) {
-        stateRoutes.sudesteNordeste = true;
+        rotas.push(["Sudeste", "Nordeste"])
       }
       if (centroOeste.includes(element[1])) {
-        stateRoutes.sudesteCentro = true;
+        rotas.push(["Sudeste", "Centro-Oeste"])
       }
       if (sul.includes(element[1])) {
-        stateRoutes.sudesteSul = true;
+        rotas.push(["Sudeste", "Sul"])
       }
     } else if (sul.includes(element[0])) {
-      if (norte.includes(element[1])) {
-        stateRoutes.sulNorte = true;
+      if (norte.includes(element[1])) {        rotas.push(["Sul", "Norte"])
       }
       if (nordeste.includes(element[1])) {
-        stateRoutes.sulNordeste = true;
+        rotas.push(["Sul", "Nordeste"])
       }
       if (centroOeste.includes(element[1])) {
-        stateRoutes.sulCentro = true;
+        rotas.push(["Sul", "Centro_oeste"])
       }
       if (sudeste.includes(element[1])) {
-        stateRoutes.sulSudestes = true;
+        rotas.push(["Sul", "Sudeste"])
       }
     }
   });
 
-  console.log(Object.entries(stateRoutes).forEach((value) => {
-    if (value[1] === true) {
-      console.log(value)
-    }
-  }))
+  console.log(rotas)
 }
 
 estimateRotes(routeTest)
